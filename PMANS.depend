@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1478536244 source:c:\users\jamie\desktop\pmans\main.cpp
+	<cstdlib>
+	<iostream>
+	<string>
+	<vector>
+	<cmath>
+	<fstream>
+	<time.h>
+	<numeric>
+	<algorithm>
+	<assert.h>
+
