@@ -62,24 +62,9 @@ void agent::initialize()
 
 void agent::print()
 {
-//    archivex;
-//    archivey;
-//    evaluationx;
-//    evaluationy;
-//    noveltyofx;
-//    noveltyofy;
-//    noveltyvector;
-//    novelty;
-
-    for (vector<double>::const_iterator i = archivex.begin(); i != archivex.end(); i++) {
-        cout << *i << endl;
-    }
 
 
 }
-
-
-
 
 void agent::evaluate()
 {
@@ -87,9 +72,9 @@ void agent::evaluate()
     for (int i = 1; i < l; i++)
     {
 
-      for(int j = 0; j < i; j++)
+        for(int j = 0; j < i; j++)
         {
-        for(unsigned int m = 0; m < agents.size(); m++)
+            for(unsigned int m = 0; m < agents.size(); m++)
             {
                 evalx = abs(archivex.at(i)- agents[m].archivex.at(j));
                 evalxtotal = evalxtotal + evalx;
@@ -106,18 +91,18 @@ void agent::evaluate()
 
     }
 
-        sumx = accumulate(noveltyofx.begin(), noveltyofx.end(), 0.0);
-        sumy = accumulate(noveltyofy.begin(), noveltyofy.end(), 0.0);
-        novelty = sumx+sumy;
+    sumx = accumulate(noveltyofx.begin(), noveltyofx.end(), 0.0);
+    sumy = accumulate(noveltyofy.begin(), noveltyofy.end(), 0.0);
+    novelty = sumx+sumy;
 
-        noveltyvector.push_back(novelty);
+    noveltyvector.push_back(novelty);
 
 
-    cout << "Novelty Vector: " << endl;
-        for (vector<double>::const_iterator i = noveltyvector.begin(); i != noveltyvector.end(); ++i)
-        {
-            std::cout << *i << ' ';
-        }
+//    cout << "Novelty Vector: " << endl;
+//    for (vector<double>::const_iterator i = noveltyvector.begin(); i != noveltyvector.end(); ++i)
+//    {
+//        std::cout << *i << ' ';
+//    }
 
 
     cout << " " << endl;
@@ -128,18 +113,12 @@ void agent::evaluate()
 void agentcreation()
 {
 
-for (unsigned int m = 0; m < agents.size(); m++)
-{
-   for (unsigned int i = 0; i < agents.size(); i++)
+    for (unsigned int m = 0; m < agents.size(); m++)
     {
-    agents[m].initialize();
+        agents[m].initialize();
     }
-}
-    //for (vector<agent>::const_iterator i = agents.begin(); i != agents.end(); i++) {
-    //    (*i)->evaluate();
-    //}
 
-   for (unsigned int i = 0; i < agents.size(); i++)
+    for (unsigned int i = 0; i < agents.size(); i++)
     {
         evalx = 0;
         evaly =0;
@@ -147,13 +126,12 @@ for (unsigned int m = 0; m < agents.size(); m++)
         evalxtotal = 0;
         evalytotal = 0;
 
-      agents[i].evaluate();
-      agents[i].print();
+        agents[i].evaluate();
+        agents[i].print();
 
-    cout << agents[0].novelty << " ?? " << agents[1].novelty << endl;
-
-    cout << " End of Run: " << i << endl;
-    cout << " " << endl;
+        cout << " " << endl;
+        cout << "End of Run: " << i << endl;
+        cout << " " << endl;
     }
 
 }
